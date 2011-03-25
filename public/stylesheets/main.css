@@ -1,0 +1,115 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: white;
+}
+#header {
+  background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#000));
+  color: #865;
+  padding-left: 1em;
+  padding-top: 6pt;
+  padding-bottom: 12pt;
+  border-bottom: 2px solid #855;
+}
+#header .title  {
+  font-weight: bold;
+  font-size: 22pt;
+  color: #ca5;
+  text-shadow: #555 1px 1px 0;
+}
+#header .subtitle  {
+  font-weight: bold;
+  font-size: 12pt;
+  color: #a75;
+  text-transform: lowercase;
+  text-shadow: #555 1px 1px 0;
+}
+
+nav {
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#bbb));
+  padding: 6pt 1em 6pt 1em;
+}
+nav li {
+  list-style-type: none;
+  padding: 5px;
+  display: inline-block;
+  background-color: #aaa;
+  -webkit-border-radius: 5px;
+  text-shadow: #ccc 1px 1px 0;
+}
+nav li a {
+  text-decoration: none;
+  color: #555;
+}
+nav li:hover {
+  -webkit-transition: all 1s linear;
+  text-shadow: #caa 1px 1px 0;
+  background-color: #b99;
+}
+
+#content {
+  padding-top: 24pt;
+  padding-bottom: 24pt;
+  background: white;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#content-title h1 {
+  font-size: 16pt;
+  border-bottom: 1px solid black;
+  margin-bottom: 6pt;
+}
+#content h2 {
+  font-weight: bold;
+  text-shadow: white 1px 1px 0;
+}
+
+footer #credits {
+  position: absolute;
+  bottom: 12pt;
+  margin: 0;
+  width: 99.25%;
+  padding-top: 6pt;
+  padding-left: 1em;
+  font-size: 8pt;
+  border-top: 3px solid #555;
+  color: #888;
+  text-shadow: #aaa 1px 1px 0;
+}
+
+.project {
+  display: inline-block;
+  width: 45%;
+  background: #eee;
+  margin-top: 6pt;
+  margin-bottom: 6pt;
+  margin-right: 1em;
+  padding: 3pt .5em 3pt .5em;
+  -webkit-box-shadow: #ccc 2px 2px 2px;
+}
+
+.project  .name {
+  margin-bottom: 3pt;
+}
+.project  .name a {
+  color: #58c;
+}
+.project .project-name {
+  font-weight: bold;
+}
+.project .description {
+  font-style: italic;
+  font-size: 90%;
+  color: #888;
+}
+.project .status {
+  float: right;
+  font-size: smaller;
+  color: #aaa;
+  text-shadow: #ccc 1px 1px 0;
+}
+
+.highlight {
+  background-color: #cec;
+}
+
+
