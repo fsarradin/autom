@@ -1,38 +1,50 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-  background: white;
+  background: #ccc;
+  min-width: 960px;
+}
+
+header {
+  background-color: white;
 }
 #header {
-  background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#000));
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffa), to(#dc8)); 
   color: #865;
   padding-left: 1em;
   padding-top: 6pt;
   padding-bottom: 12pt;
-  border-bottom: 2px solid #855;
+}
+#header #header-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
 }
 #header .title  {
   font-weight: bold;
-  font-size: 22pt;
+  font-size: 32pt;
   color: #ca5;
-  text-shadow: #555 1px 1px 0;
 }
 #header .subtitle  {
   font-weight: bold;
   font-size: 12pt;
   color: #a75;
   text-transform: lowercase;
-  text-shadow: #555 1px 1px 0;
 }
 
 nav {
-  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#bbb));
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#bbb));
   padding: 6pt 1em 6pt 1em;
+  margin-top: 12pt;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  -webkit-border-radius: 5px;
 }
 nav li {
   list-style-type: none;
   padding: 5px;
   display: inline-block;
-  background-color: #aaa;
+  background-color: #eee;
   -webkit-border-radius: 5px;
   text-shadow: #ccc 1px 1px 0;
 }
@@ -46,12 +58,17 @@ nav li:hover {
   background-color: #b99;
 }
 
-#content {
+#wrapper  {
   padding-top: 24pt;
-  padding-bottom: 24pt;
+  padding-bottom: 48pt;
   background: white;
+}
+#content {
   padding-left: 1em;
   padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
 }
 #content-title h1 {
   font-size: 16pt;
@@ -64,15 +81,12 @@ nav li:hover {
 }
 
 footer #credits {
-  position: absolute;
-  bottom: 12pt;
   margin: 0;
-  width: 99.25%;
   padding-top: 6pt;
   padding-left: 1em;
   font-size: 8pt;
-  border-top: 3px solid #555;
-  color: #888;
+  border-top: 2px solid #888;
+  color: #555;
   text-shadow: #aaa 1px 1px 0;
 }
 

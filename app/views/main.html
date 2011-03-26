@@ -13,8 +13,10 @@
     <body>
 <header>
 <div id="header">
+  <div id="header-wrapper">
   <h1 class="title">Autom</h1>
   <span class="subtitle">Project Management</span>
+  </div>
 </div>
 <nav>
   <li><a href="#">Dashboard</a></li>
@@ -23,15 +25,16 @@
 </nav>
 </header>
 
-<div id="content">
+<div id="wrapper">
+  <div id="content">
         #{doLayout /}
+  </div>
 </div>
 <footer>
 <div id="credits">
 Copyright &copy; 2010 - François Sarradin
 </div>
 </footer>
-
 	<script type="text/javascript" src="@{'/public/javascripts/jquery-1.4.2.min.js'}"></script>
     </body>
 </html>
