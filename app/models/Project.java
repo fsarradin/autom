@@ -26,6 +26,19 @@ public class Project extends Model {
 		this.description = description;
 	}
 	
+	public Status getStatus() {
+		List<Release> releases = Release.find("byProject", this).fetch();
+		if (releases.size() == 0) {
+			return Status.TODO;
+		}
+		for (Release release : releases) {
+			if (release.getStatus() != Status.DONE) {
+				return Status.IN_PROGRESS;
+			}
+		}
+		return Status.DONE;
+	}
+	
 	public String toString() {
 		return name;
 	}

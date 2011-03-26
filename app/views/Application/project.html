@@ -1,13 +1,13 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<h2><a href="/${user.login}">${user.login}</a> <span>/ ${project.name}</span></h2>
-
 <article id="project">
+<section id="project-header">
+<a href="/${user.login}">${user.login}</a> <span>/ ${project.name}</span>
+</section>
 
-<section class="project-detail">
-  <div class="status">IN PROGRESS</div>
-  <div class="name"><a href="#"><span class="author">${user.login}</span>/<span class="project-name">${project.name}</span></a></div>
+<section id="project-detail">
+  <div class="status">${project.getStatus()}</div>
   <div class="description">#{if project.description}${project.description}#{/if}#{else}&nbsp;#{/else}</div>
 </section>
 

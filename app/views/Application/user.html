@@ -22,7 +22,7 @@ ${user.login} <span class="fullname">(${user.fullname})</span>
 #{if projects.size() > 0}
 #{list items:projects, as:'project'}
 <section class="project">
-  <div class="status">IN PROGRESS</div>
+  <div class="status">${project.getStatus()}</div>
   <div class="name"><a href="${user.login}/${project.name}"><span class="project-name">${project.name}</span></a></div>
   <div class="description">#{if project.description}${project.description}#{/if}#{else}&nbsp;#{/else}</div>
 </section>
