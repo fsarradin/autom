@@ -1,20 +1,17 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<h2>Project</h2>
-
 <article id="user">
 
 <section id="user-detail">
 <div id="name">${user.login} (${user.fullname})</div>
 <div id="email">${user.email}</div>
-</section>
-
 #{if user.description}
 <div id="user-bio">
 ${user.description}
 </div>
 #{/if}
+</section>
 
 #{if projects.size() > 0}
 #{list items:projects, as:'project'}

@@ -21,11 +21,10 @@ public class Application extends Controller {
 	}
 
 	public static void project(String ownerName, String projectName) {
-		User owner = User.find("byLogin", ownerName).first();
-		Project project = Project.find("byOwnerAndName", owner, projectName).first();
-		Logger.info("get project info: project = " + project + ", owner = " + owner);
-		renderArgs.put("owner", owner);
-		render(project);
+		User user = User.find("byLogin", ownerName).first();
+		Project project = Project.find("byOwnerAndName", user, projectName).first();
+		Logger.info("get project info: project = " + project + ", owner = " + user);
+		render(user, project);
 	}
 	
 }
