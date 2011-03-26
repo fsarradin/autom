@@ -22,6 +22,9 @@ header {
 #header .title  {
   font-weight: bold;
   font-size: 32pt;
+}
+#header .title  a {
+  text-decoration: none;
   color: #ca5;
 }
 #header .subtitle  {
@@ -39,6 +42,7 @@ nav {
   margin-right: auto;
   width: 960px;
   -webkit-border-radius: 5px;
+  font-size: small;
 }
 nav li {
   list-style-type: none;

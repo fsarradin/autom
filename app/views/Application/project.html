@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h2><a href="/${owner.login}">${owner.login}</a> <span>/ ${project.name}</span></h2>
+
+<article id="project">
+
+<section class="project-detail">
+  <div class="status">IN PROGRESS</div>
+  <div class="name"><a href="#"><span class="author">${owner.login}</span>/<span class="project-name">${project.name}</span></a></div>
+  <div class="description">#{if project.description}${project.description}#{/if}#{else}&nbsp;#{/else}</div>
+</section>
+
+</article>
