@@ -26,12 +26,20 @@ public class User extends Model {
 	@MaxSize(1000)
 	public String description;
 	
-	public User(String login, String password, String email, String fullname, String description) {
+	@Required
+	public Date since = new Date();
+	
+	public User(String login, String password, String email, String fullname, String description, Date since) {
 		this.login = login;
 		this.password = password;
 		this.email = email;
 		this.fullname = fullname;
 		this.description = description;
+		if (since == null) {
+			this.since = new Date();
+		} else {
+			this.since = since;
+		}
 	}
 	
 	public String toString() {

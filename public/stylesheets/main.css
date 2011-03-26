@@ -130,4 +130,51 @@ footer #credits {
   background-color: #cec;
 }
 
+#user-header {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 12pt;
+}
+#user-header .fullname {
+  color: #aaa;
+  font-weight: normal;
+}
 
+#user-detail {
+  font-size: 80%;
+  border-top: 1px solid #ccc;
+  padding-top: 12pt;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 24pt;
+}
+#user-detail td {
+  padding-top: 3pt;
+  padding-bottom: 3pt;
+}
+#user-detail tr td:first-child {
+  color: #aaa;
+  padding-right: 1em;
+}
+
+#project-header {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 12pt;
+  color: #58c;
+}
+#project-header a {
+  text-decoration: none;
+  color: #58c;
+  font-weight: normal;
+}
+#project-header a:hover {
+  text-decoration: underline;
+}
+
+#project-detail {
+  border: 1px solid #ccc;
+  padding: 6pt;
+}
+#project-detail .status {
+  float: right;
+}
