@@ -3,7 +3,10 @@
 # ~~~~
 
 *       /admin                                  module:crud
-*       /                                       module:secure
+#*       /                                       module:secure
+
+GET     /login                                  Admin.login
+POST    /authenticate                           Admin.authenticate
 
 # Home page
 GET     /                                       Application.index
