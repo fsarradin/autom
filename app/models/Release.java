@@ -23,7 +23,11 @@ public class Release extends Model {
 	@MaxSize(1000)
 	public String description;
 	
+	@OneToMany
+	public List<Task> tasks;
+	
 	public Release(String name, String version, Project project, String description) {
+		this.tasks = new ArrayList<Task>();
 		this.name = name;
 		this.version = version;
 		this.project = project;

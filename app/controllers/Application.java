@@ -21,10 +21,18 @@ public class Application extends Controller {
 	}
 
 	public static void project(String ownerName, String projectName) {
-		User user = User.find("byLogin", ownerName).first();
-		Project project = Project.find("byOwnerAndName", user, projectName).first();
-		Logger.info("get project info: project = " + project + ", owner = " + user);
-		render(user, project);
+		Project project = Project.find("owner.login = ? and name = ?",
+			ownerName, projectName).first();
+		Logger.info("get project info: project = " + project + ", owner = " + ownerName);
+		render(project);
+	}
+
+	public static void release(String ownerName, String projectName, String version) {
+		Release release = Release.find("project.owner.login = ? "
+			+ " and project.name = ? "
+			+ " and version = ?",
+			ownerName, projectName, version).first();
+		render(release);
 	}
 	
 }

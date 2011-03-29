@@ -1,0 +1,34 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<article id="release">
+
+<section id="release-header">
+${release.name} <span class="version">(${release.version})</span>
+</section>
+<section id="release-detail">
+<dl>
+<dt>Project</dt>
+<dd><a href="/${release.project.owner.login}/${release.project.name}">${release.project.name}</a></dd>
+<dt>Release</dt>
+<dd>${release.version}</dd>
+<dt>Name</dt>
+<dd>${release.name}</dd>
+#{if release.description}
+<dt>Description</dt>
+<dd>${release.description}</dd>
+#{/if}
+</dl>
+</section>
+
+#{if release.tasks.size() > 0}
+#{list items:release.tasks, as:'task'}
+<section class="task">
+  <div class="status">${task.status}</div>
+  <div class="title">[${task.taskId}] ${task.title}</div>
+  <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
+</section>
+#{/list}
+#{/if}
+
+</article>

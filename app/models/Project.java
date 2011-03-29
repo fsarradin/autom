@@ -20,14 +20,17 @@ public class Project extends Model {
 	@MaxSize(1000)
 	public String description;
 	
+	@OneToMany(mappedBy="project")
+	public List<Release> releases;
+	
 	public Project(String name, User owner, String description) {
+		this.releases = new ArrayList<Release>();
 		this.name = name;
 		this.owner = owner;
 		this.description = description;
 	}
 	
 	public Status getStatus() {
-		List<Release> releases = Release.find("byProject", this).fetch();
 		if (releases.size() == 0) {
 			return Status.TODO;
 		}
@@ -37,6 +40,14 @@ public class Project extends Model {
 			}
 		}
 		return Status.DONE;
+	}
+	
+	public int getTaskCount() {
+		int count = 0;
+		for (Release release : releases) {
+			count += release.tasks.size();
+		}
+		return count;
 	}
 	
 	public String toString() {

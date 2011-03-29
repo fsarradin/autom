@@ -178,3 +178,23 @@ footer #credits {
 #project-detail .status {
   float: right;
 }
+
+table.data {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+table.data th {
+  text-align: left;
+  font-size: 90%;
+  font-weight: normal;
+  padding: .5em .3em;
+  background-color: #ddd;
+  border-bottom: 1px solid #ccc;
+}
+table.data td {
+  text-align: left;
+  font-weight: normal;
+  padding: .5em .3em;
+  border-bottom: 1px solid #ccc;
+}

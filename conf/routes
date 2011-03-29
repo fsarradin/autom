@@ -8,13 +8,15 @@
 GET     /login                                  Admin.login
 POST    /authenticate                           Admin.authenticate
 
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
 # Home page
 GET     /                                       Application.index
 GET     /{userName}                             Application.user
 GET     /{ownerName}/{projectName}              Application.project
-
-# Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
+GET     /{ownerName}/{projectName}/{version}    Application.release
+#GET     /{ownerName}/{projectName}/{tid}        Application.task
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
