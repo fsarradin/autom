@@ -4,9 +4,13 @@
 <article id="release">
 
 <section id="release-header">
-${release.name} <span class="version">(${release.version})</span>
+<span id="version"><a href="/${release.project.owner.login}">${release.project.owner.login}</a>
+  / <a href="/${release.project.owner.login}/${release.project.name}">${release.project.name}</a>
+  / ${release.version}</span><br />
+${release.name}
 </section>
 <section id="release-detail">
+<div id="release-status">${release.getStatus()}</div>
 <dl>
 <dt>Project</dt>
 <dd><a href="/${release.project.owner.login}/${release.project.name}">${release.project.name}</a></dd>

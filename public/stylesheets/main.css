@@ -179,6 +179,41 @@ footer #credits {
   float: right;
 }
 
+#release-header {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 24pt;
+  color: #58c;
+}
+#release-header #version {
+  font-weight: normal;
+}
+#release-header #version a {
+  text-decoration: none;
+  color: #58c;
+  font-weight: normal;
+}
+#release-header #version a:hover {
+  text-decoration: underline;
+}
+#release-detail {
+  padding-top: 6pt;
+  padding-bottom: 12pt;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 24pt;
+  font-size: 90%;
+}
+#release-detail #release-status {
+  float: right;
+}
+#release-detail dt {
+  float: left;
+  width: 115px;
+}
+#release-detail dd {
+}
+
 table.data {
   width: 100%;
   border: 1px solid #ccc;
