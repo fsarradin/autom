@@ -24,15 +24,16 @@ ${release.name}
 #{/if}
 </dl>
 </section>
+</article>
 
 #{if release.tasks.size() > 0}
+<article id="task-container">
 #{list items:release.tasks, as:'task'}
-<section class="task">
+<section class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
   <div class="title">[${task.taskId}] ${task.title}</div>
   <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </section>
 #{/list}
-#{/if}
-
 </article>
+#{/if}

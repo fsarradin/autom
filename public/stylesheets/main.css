@@ -214,6 +214,36 @@ footer #credits {
 #release-detail dd {
 }
 
+#task-container {
+  border: 1px solid red;
+}
+.task {
+  border: 1px solid;
+  width: 25%;
+  font-size: 90%;
+  box-shadow: #ccc 5px 5px 5px;
+}
+.task .status {
+  float: right;
+  padding: 0.4em;
+}
+.task .title {
+  border-bottom: 2px solid;
+  padding: 0.4em;
+  font-weight: bold;
+}
+.task .description {
+  padding: 0.4em;
+}
+
+.todo {
+  background-color: #ffb;
+  border-color: #ee0;
+}
+.todo .title {
+  border-bottom-color: #ee0;
+}
+
 table.data {
   width: 100%;
   border: 1px solid #ccc;
