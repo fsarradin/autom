@@ -26,14 +26,41 @@ ${release.name}
 </section>
 </article>
 
-#{if release.tasks.size() > 0}
-<article id="task-container">
-#{list items:release.tasks, as:'task'}
-<section class="task ${task.status.toString().toLowerCase()}">
+<p class="note">Drag and drop a task to change its status.</p>
+
+<table id="task-table">
+<tr>
+<th>TODO</th>
+<th>IN PROGRESS</th>
+<th>DONE</th>
+</tr>
+<tr id="task-container">
+<td id="todo-container">
+#{list items:release.getTasksByStatus(models.Status.TODO), as:'task'}
+<div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
   <div class="title">[${task.taskId}] ${task.title}</div>
   <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
-</section>
+</div>
 #{/list}
-</article>
-#{/if}
+</td>
+<td id="in_progress-container">
+#{list items:release.getTasksByStatus(models.Status.IN_PROGRESS), as:'task'}
+<div class="task ${task.status.toString().toLowerCase()}">
+  <div class="status">${task.status}</div>
+  <div class="title">[${task.taskId}] ${task.title}</div>
+  <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
+</div>
+#{/list}
+</td>
+<td id="done-container">
+#{list items:release.getTasksByStatus(models.Status.DONE), as:'task'}
+<div class="task ${task.status.toString().toLowerCase()}">
+  <div class="status">${task.status}</div>
+  <div class="title">[${task.taskId}] ${task.title}</div>
+  <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
+</div>
+#{/list}
+</td>
+</tr>
+</table>

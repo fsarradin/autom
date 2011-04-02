@@ -211,15 +211,47 @@ footer #credits {
   float: left;
   width: 115px;
 }
-#release-detail dd {
+#release-detail dd  a {
+  color: #58c;
+  text-decoration: none;
+}
+#release-detail dd  a:hover {
+  text-decoration: underline;
 }
 
-#task-container {
-  border: 1px solid red;
+.note {
+  margin: 6pt 0pt 6pt 0pt;
+  font-size: 80%;
+  font-style: italic;
+  color: #888;
 }
+
+#task-table {
+  width: 100%;
+}
+#task-table th {
+  text-align: center;
+  font-size: 90%;
+  font-weight: bold;
+  padding: .5em .3em;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+}
+#task-table td {
+  text-align: left;
+  font-weight: normal;
+  width: 33%;
+  padding: .5em .3em;
+  border: 1px solid #ccc;
+}
+#task-container {
+}
+.over-highlight{
+  background-color: #ccc;
+}
+
 .task {
-  border: 1px solid;
-  width: 25%;
+  width: 99%;
   font-size: 90%;
   box-shadow: #ccc 5px 5px 5px;
 }
@@ -228,7 +260,7 @@ footer #credits {
   padding: 0.4em;
 }
 .task .title {
-  border-bottom: 2px solid;
+  border-bottom: 1px solid;
   padding: 0.4em;
   font-weight: bold;
 }
@@ -238,10 +270,9 @@ footer #credits {
 
 .todo {
   background-color: #ffb;
-  border-color: #ee0;
 }
 .todo .title {
-  border-bottom-color: #ee0;
+  border-bottom-color: #ee5;
 }
 
 table.data {

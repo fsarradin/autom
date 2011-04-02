@@ -3,6 +3,7 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
+import play.Logger;
 import play.db.jpa.*;
 import play.data.validation.*;
 
@@ -35,7 +36,8 @@ public class Release extends Model {
 	}
 	
 	public Status getStatus() {
-		List<Task> tasks = Task.find("byProjectAndRelease", project, this).fetch();
+		List<Task> tasks = Task.find("byProjectAndRelease",
+			project, this).fetch();
 		if (tasks.size() == 0) {
 			return Status.TODO;
 		}
@@ -46,6 +48,12 @@ public class Release extends Model {
 		}
 		return Status.DONE;
 
+	}
+	
+	public List<Task> getTasksByStatus(Status status) {
+		Logger.info("get tasks in status " + status);
+		return Task.find("byProjectAndReleaseAndStatus",
+			project, this, status).fetch();
 	}
 	
 	public String toString() {
