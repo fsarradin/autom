@@ -35,29 +35,29 @@ ${release.name}
 <th>DONE</th>
 </tr>
 <tr id="task-container">
-<td id="todo-container">
+<td id="todo-container" class="task-column">
 #{list items:release.getTasksByStatus(models.Status.TODO), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
-  <div class="title">[${task.taskId}] ${task.title}</div>
+  <div class="task-title">[${task.taskId}] ${task.title}</div>
   <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </div>
 #{/list}
 </td>
-<td id="in_progress-container">
+<td id="in_progress-container" class="task-column">
 #{list items:release.getTasksByStatus(models.Status.IN_PROGRESS), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
-  <div class="title">[${task.taskId}] ${task.title}</div>
+  <div class="task-title">[${task.taskId}] ${task.title}</div>
   <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </div>
 #{/list}
 </td>
-<td id="done-container">
+<td id="done-container" class="task-column">
 #{list items:release.getTasksByStatus(models.Status.DONE), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
-  <div class="title">[${task.taskId}] ${task.title}</div>
+  <div class="task-title">[${task.taskId}] ${task.title}</div>
   <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </div>
 #{/list}

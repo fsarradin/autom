@@ -1,29 +1,26 @@
 
 $(document).ready(function () {
-	$(".task").draggable({
-		containment: "#task-container",
-		grid: [10, 10],
-		opacity: 0.70
-	});
-	
-	function taskContainerOptionsForStatus(status) {
-		return {
-			accept: '.task',
-			hoverClass: 'over-highlight',
-			drop: function(event, ui) {
-				var classes = ui.draggable.attr("class").split();
-				for (cls in classes) {
-					if (cls != "task") {
-						ui.draggable.removeClass(cls);
-					}
-				}
-				ui.draggable.addClass(status.toLowerCase());
-				ui.draggable.find(".status").text(status);
-			}
-		};
+
+	function isStatus(name) {
+		return ['todo', 'in_progress', 'done'].some(function (elem) {
+			return elem == name;
+		});
 	}
+
+	$(".task-column")
+		.sortable({
+			connectWith: '.task-column',
+			handle: '.task-title',
+			opacity: 0.60,
+			
+			receive: function(event, ui) {
+				var cls = ui.attr('class').split(' ');
+				cls.forEach(function (elem) {
+					if (isStatus(elem)) {
+						// TODO
+					}
+				});
+			}
+		});
 	
-	$("#todo-container").droppable(taskContainerOptionsForStatus("TODO"));
-	$("#in_progress-container").droppable(taskContainerOptionsForStatus("IN_PROGRESS"));
-	$("#done-container").droppable(taskContainerOptionsForStatus("DONE"));
 });

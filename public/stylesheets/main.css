@@ -253,14 +253,16 @@ footer #credits {
 .task {
   width: 99%;
   font-size: 90%;
-  box-shadow: #ccc 5px 5px 5px;
+  background-color: #ffb;
+  box-shadow: #ccc 2px 2px 2px;
+  margin-bottom: 6pt;
 }
 .task .status {
   float: right;
   padding: 0.4em;
 }
-.task .title {
-  border-bottom: 1px solid;
+.task-title {
+  background-color: #fe8;
   padding: 0.4em;
   font-weight: bold;
 }
@@ -268,11 +270,9 @@ footer #credits {
   padding: 0.4em;
 }
 
-.todo {
-  background-color: #ffb;
+.todo, .in_progress, .done {
 }
 .todo .title {
-  border-bottom-color: #ee5;
 }
 
 table.data {
