@@ -8,6 +8,9 @@
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
+# Account settings
+GET     /account                                Account.settings
+
 # Home page
 GET     /                                       Application.index
 GET     /{userName}                             Application.user

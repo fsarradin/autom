@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<article id="account">
+
+%{
+	username = controllers.Security.connected();
+	user = models.User.findByUsername(username);
+}%
+
+#{form @Account.update(), id:'accountUpdate', enctype:'multipart/form-data'}
+	<div>
+	<dt>Full name</dt>
+	<dd><input type="text" name="fullname" id="fullname" value="${user.fullname}"/></dd>
+	<dt>Email</dt>
+	<dd><input type="text" name="email" id="email" value="${user.email}"/></dd>
+	<dt>Bio</dt>
+	<dd><textarea name="description" id="description">${user.description}</textarea></dd>
+	</div>
+	<div>
+		<input type="submit" value="Save" />
+	</div>
+#{/form}
+
+</article>
