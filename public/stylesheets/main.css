@@ -41,11 +41,14 @@ nav {
   margin-left: auto;
   margin-right: auto;
   width: 960px;
+  height: 3ex;
   -webkit-border-radius: 5px;
   font-size: small;
 }
 nav li {
+  float: right;
   list-style-type: none;
+  margin-left: 0.5em;
   padding: 5px;
   display: inline-block;
   background-color: #eee;

@@ -20,8 +20,14 @@
   </div>
 </div>
 <nav>
+  #{if controllers.Security.isConnected()}
+  <span>Welcome, ${models.User.findByUsername(controllers.Security.connected()).fullname}</span>
   <li><a href="#">Dashboard</a></li>
-  <li><a href="#">Other</a></li>
+  <li><a href="@{Secure.logout}">Logout</a></li>
+  #{/if}
+  #{else}
+  <li><a href="@{Secure.login}">Login</a></li>
+  #{/else}
   <li><a href="#">About</a></li>
 </nav>
 </header>

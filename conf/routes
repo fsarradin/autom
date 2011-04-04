@@ -3,10 +3,7 @@
 # ~~~~
 
 *       /admin                                  module:crud
-#*       /                                       module:secure
-
-GET     /login                                  Admin.login
-POST    /authenticate                           Admin.authenticate
+*       /                                       module:secure
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
@@ -16,7 +13,6 @@ GET     /                                       Application.index
 GET     /{userName}                             Application.user
 GET     /{ownerName}/{projectName}              Application.project
 GET     /{ownerName}/{projectName}/{version}    Application.release
-#GET     /{ownerName}/{projectName}/{tid}        Application.task
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

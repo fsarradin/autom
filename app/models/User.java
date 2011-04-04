@@ -45,5 +45,9 @@ public class User extends Model {
 	public String toString() {
 		return login;
 	}
-
+	
+	public static User findByUsername(String username) {
+		return User.find("login = ? or email = ?", username, username).first();
+	}
+	
 }
