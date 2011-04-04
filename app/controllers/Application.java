@@ -10,8 +10,11 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-		List<Project> projects = Project.findAll();
-        render(projects);
+		if (Security.isConnected()) {
+			user(Security.connected());
+		} else {
+			render();
+		}
     }
 	
 	public static void user(String userName) {

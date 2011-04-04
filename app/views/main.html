@@ -9,7 +9,9 @@
         <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        #{get 'moreScripts' /}
+		<script type="text/javascript" src="@{'/public/javascripts/jquery-1.5.1.min.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jquery-ui-1.8.11.custom.min.js'}"></script>
+		#{get 'moreScripts' /}
     </head>
     <body>
 <header>
@@ -20,15 +22,15 @@
   </div>
 </div>
 <nav>
+  <li><a href="#">About</a></li>
   #{if controllers.Security.isConnected()}
-  <span>Welcome, ${models.User.findByUsername(controllers.Security.connected()).fullname}</span>
-  <li><a href="#">Dashboard</a></li>
   <li><a href="@{Secure.logout}">Logout</a></li>
+  <li><a href="#">Dashboard</a></li>
+  <span>Welcome, ${models.User.findByUsername(controllers.Security.connected()).fullname}</span>
   #{/if}
   #{else}
   <li><a href="@{Secure.login}">Login</a></li>
   #{/else}
-  <li><a href="#">About</a></li>
 </nav>
 </header>
 
@@ -42,8 +44,5 @@
 Copyright &copy; 2010 - François Sarradin
 </div>
 </footer>
-	<script type="text/javascript" src="@{'/public/javascripts/jquery-1.5.1.min.js'}"></script>
-	<script type="text/javascript" src="@{'/public/javascripts/jquery-ui-1.8.11.custom.min.js'}"></script>
-	<script type="text/javascript" src="@{'/public/javascripts/script.js'}"></script>
     </body>
 </html>
