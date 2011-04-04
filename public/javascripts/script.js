@@ -6,6 +6,10 @@ $(document).ready(function () {
 			return elem == name;
 		});
 	}
+	
+	function toStatusRepr(status) {
+		return status.toUpperCase().replace('_', ' ');
+	}
 
 	$(".task-column")
 		.sortable({
@@ -14,10 +18,18 @@ $(document).ready(function () {
 			opacity: 0.60,
 			
 			receive: function(event, ui) {
-				var cls = ui.attr('class').split(' ');
+				var cls = ui.item.attr('class').split(' ');
 				cls.forEach(function (elem) {
 					if (isStatus(elem)) {
-						// TODO
+						ui.item.removeClass(elem)
+					}
+				});
+				var thisCls = $(this).attr('class').split(' ');
+				thisCls.forEach(function (elem) {
+					if (isStatus(elem)) {
+						ui.item.addClass(elem)
+						var status = toStatusRepr(elem);
+						ui.item.find('.status').text(status);
 					}
 				});
 			}

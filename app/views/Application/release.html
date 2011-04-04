@@ -26,7 +26,9 @@ ${release.name}
 </section>
 </article>
 
+#{if controllers.Security.isConnected()}
 <p class="note">Drag and drop a task to change its status.</p>
+#{/if}
 
 <table id="task-table">
 <tr>
@@ -35,7 +37,7 @@ ${release.name}
 <th>DONE</th>
 </tr>
 <tr id="task-container">
-<td id="todo-container" class="task-column">
+<td id="todo-container" class="task-column todo">
 #{list items:release.getTasksByStatus(models.Status.TODO), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
@@ -44,7 +46,7 @@ ${release.name}
 </div>
 #{/list}
 </td>
-<td id="in_progress-container" class="task-column">
+<td id="in_progress-container" class="task-column in_progress">
 #{list items:release.getTasksByStatus(models.Status.IN_PROGRESS), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
@@ -53,7 +55,7 @@ ${release.name}
 </div>
 #{/list}
 </td>
-<td id="done-container" class="task-column">
+<td id="done-container" class="task-column done">
 #{list items:release.getTasksByStatus(models.Status.DONE), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
