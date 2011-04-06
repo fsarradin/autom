@@ -13,7 +13,7 @@ GET     /account                                Account.settings
 
 # Home page
 GET     /                                       Application.index
-GET     /{userName}                             Application.user
+GET     /{username}                             Application.user
 GET     /{ownerName}/{projectName}              Application.project
 GET     /{ownerName}/{projectName}/{version}    Application.release
 

@@ -11,14 +11,25 @@ public class Application extends Controller {
 
     public static void index() {
 		if (Security.isConnected()) {
-			user(Security.connected());
+			User user = User.findByUsername(Security.connected());
+			if (user == null) {
+				try {
+					Secure.logout();
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
+				render();
+			} else {
+				List<Project> projects = Project.find("byOwner", user).fetch();
+				renderTemplate("Application/user.html", user, projects);
+			}
 		} else {
 			render();
 		}
     }
 	
-	public static void user(String userName) {
-		User user = User.find("byLogin", userName).first();
+	public static void user(String username) {
+		User user = User.findByUsername(username);
 		List<Project> projects = Project.find("byOwner", user).fetch();
 		render(user, projects);
 	}

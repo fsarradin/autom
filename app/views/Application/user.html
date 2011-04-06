@@ -3,6 +3,10 @@
 
 <article id="user">
 
+#{if user == null}
+<p>User unknown</p>
+#{/if}
+#{else}
 <section id="user-header">
 ${user.login} <span class="fullname">(${user.fullname})</span>
 </section>
@@ -28,5 +32,5 @@ ${user.login} <span class="fullname">(${user.fullname})</span>
 </section>
 #{/list}
 #{/if}
-
+#{/else}
 </article>

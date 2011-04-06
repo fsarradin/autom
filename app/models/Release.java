@@ -24,7 +24,7 @@ public class Release extends Model {
 	@MaxSize(1000)
 	public String description;
 	
-	@OneToMany
+	@OneToMany(mappedBy="release", cascade=CascadeType.ALL)
 	public List<Task> tasks;
 	
 	public Release(String name, String version, Project project, String description) {
@@ -36,8 +36,6 @@ public class Release extends Model {
 	}
 	
 	public Status getStatus() {
-		List<Task> tasks = Task.find("byProjectAndRelease",
-			project, this).fetch();
 		if (tasks.size() == 0) {
 			return Status.TODO;
 		}
