@@ -173,13 +173,25 @@ footer #credits {
 #project-header a:hover {
   text-decoration: underline;
 }
-
 #project-detail {
   border: 1px solid #ccc;
   padding: 6pt;
 }
 #project-detail .status {
   float: right;
+}
+
+#release-list {
+  margin-top: 24pt;
+}
+#release-list  h2 {
+  margin-bottom: 12pt;
+}
+#release-list  .data {
+  font-size: 90%;
+}
+#release-list  .total * {
+  font-weight: bold;
 }
 
 #release-header {

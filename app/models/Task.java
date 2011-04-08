@@ -30,13 +30,21 @@ public class Task extends Model {
 	@MaxSize(1000)
 	public String description;
 	
-	public Task(String title, String taskId, Status status, Project project, Release release, String description) {
+	@Required
+	public Date startDate = new Date();
+	
+	public Date endDate;
+	
+	public Task(String title, String taskId, Status status, Project project,
+			Release release, String description, Date startDate, Date endDate) {
 		this.title = title;
 		this.taskId = taskId;
 		this.status = status;
 		this.project = project;
 		this.release = release;
 		this.description = description;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 	
 	public String toString() {

@@ -30,6 +30,9 @@ public class Application extends Controller {
 	
 	public static void user(String username) {
 		User user = User.findByUsername(username);
+		if (user == null) {
+			notFound(username);
+		}
 		List<Project> projects = Project.find("byOwner", user).fetch();
 		render(user, projects);
 	}
@@ -38,6 +41,9 @@ public class Application extends Controller {
 		Project project = Project.find("owner.login = ? and name = ?",
 			ownerName, projectName).first();
 		Logger.info("get project info: project = " + project + ", owner = " + ownerName);
+		if (project == null) {
+			notFound(ownerName + " / " + projectName);
+		}
 		render(project);
 	}
 
@@ -46,6 +52,9 @@ public class Application extends Controller {
 			+ " and project.name = ? "
 			+ " and version = ?",
 			ownerName, projectName, version).first();
+		if (release == null) {
+			notFound(ownerName + " / " + projectName + " / " + version);
+		}
 		render(release);
 	}
 	
