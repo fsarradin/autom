@@ -37,25 +37,4 @@ public class Application extends Controller {
 		render(user, projects);
 	}
 
-	public static void project(String ownerName, String projectName) {
-		Project project = Project.find("owner.login = ? and name = ?",
-			ownerName, projectName).first();
-		Logger.info("get project info: project = " + project + ", owner = " + ownerName);
-		if (project == null) {
-			notFound(ownerName + " / " + projectName);
-		}
-		render(project);
-	}
-
-	public static void release(String ownerName, String projectName, String version) {
-		Release release = Release.find("project.owner.login = ? "
-			+ " and project.name = ? "
-			+ " and version = ?",
-			ownerName, projectName, version).first();
-		if (release == null) {
-			notFound(ownerName + " / " + projectName + " / " + version);
-		}
-		render(release);
-	}
-	
 }

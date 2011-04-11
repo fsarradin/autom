@@ -1,0 +1,10 @@
+#{extends 'main.html' /}
+#{set title:'New project' /}
+
+#{form @Projects.add()}
+<dt>Name</dt>
+<dd><input type="text" name="name" id="name" /></dd>
+<dt>Description</dt>
+<dd><textarea name="description" id="description" cols="40" rows="5"></textarea></dd>
+<p><input type="submit" /></p>
+#{/form}

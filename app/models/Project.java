@@ -23,11 +23,18 @@ public class Project extends Model {
 	@OneToMany(mappedBy="project")
 	public List<Release> releases;
 	
-	public Project(String name, User owner, String description) {
+	public Date createDate = new Date();
+	
+	public Project(String name, User owner, String description, Date createDate) {
 		this.releases = new ArrayList<Release>();
 		this.name = name;
 		this.owner = owner;
 		this.description = description;
+		if (createDate == null) {
+			this.createDate = new Date();
+		} else {
+			this.createDate = createDate;
+		}
 	}
 	
 	public Status getStatus() {

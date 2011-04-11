@@ -23,7 +23,13 @@ ${user.login} <span class="fullname">(${user.fullname})</span>
 </table>
 </section>
 
-#{if projects.size() > 0}
+<section id="projects">
+<h2>Projects (${projects.size()})</h2>
+
+<p>
+<a href="@{Projects.create}">New project</a>
+</p>
+
 #{list items:projects, as:'project'}
 <section class="project">
   <div class="status">${project.getStatus()}</div>
@@ -31,6 +37,6 @@ ${user.login} <span class="fullname">(${user.fullname})</span>
   <div class="description">#{if project.description}${project.description}#{/if}#{else}&nbsp;#{/else}</div>
 </section>
 #{/list}
-#{/if}
+</section>
 #{/else}
 </article>

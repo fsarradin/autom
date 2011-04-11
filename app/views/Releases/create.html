@@ -1,0 +1,13 @@
+#{extends 'main.html' /}
+#{set title:'New release' /}
+
+#{form @Releases.add()}
+<input type="hidden" name="project" id="project" value="${projectName}" />
+<dt>Version</dt>
+<dd><input type="text" name="version" id="version" /></dd>
+<dt>Name</dt>
+<dd><input type="text" name="name" id="name" /></dd>
+<dt>Description</dt>
+<dd><textarea name="description" id="description" cols="40" rows="5"></textarea></dd>
+<p><input type="submit" /></p>
+#{/form}

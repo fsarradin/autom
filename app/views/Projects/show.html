@@ -1,23 +1,40 @@
-#{extends 'CRUD/layout.html' /}
+#{extends 'main.html' /}
+#{set title:'Home' /}
 
-<div id="crudShow" class="${type.name}">
-	
-	<h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
-	
-	<div class="objectForm">
-	#{form action:@save(object._key()), enctype:'multipart/form-data'}
-		#{crud.form /}
-		<p class="crudButtons">
-			<input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
-			<input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
-		</p>
-	#{/form}
-	</div>
-	
-	#{form @delete(object._key())}
-		<p class="crudDelete">
-			<input type="submit" value="&{'crud.delete', type.modelName}" />
-		</p>
-	#{/form}
+<article id="project">
+<section id="project-header">
+<a href="/${project.owner}">${project.owner}</a> <span>/ ${project.name}</span>
+</section>
 
-</div>
+<section id="project-detail">
+  <div class="status">${project.getStatus()}</div>
+  <div class="description">#{if project.description}${project.description}#{/if}#{else}&nbsp;#{/else}</div>
+</section>
+</article>
+
+<article id="release-list">
+<h2>Release</h2>
+
+<p>
+<a href="@{Releases.create(project.name)}">New release</a>
+</p>
+
+<table class="data">
+<tbody>
+<tr><th>version</th><th>name</th><th>task quantity</th><th>status</th></tr>
+#{if project.releases.size() > 0}
+#{list items:project.releases, as:'release'}
+<tr class="release">
+<td><a href="/${project.owner}/${project.name}/${release.version}">${release.version}</a></td>
+<td>${release.name}</td>
+<td>${release.tasks.size()}</td>
+<td>${release.getStatus()}</td>
+</tr>
+#{/list}
+#{/if}
+<tr class="total">
+<td></td><td>Total</td><td>${project.getTaskCount()}</td><td></td>
+</tr>
+</tbody>
+</table>
+</article>
