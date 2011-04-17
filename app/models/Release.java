@@ -1,11 +1,13 @@
 package models;
 
-import java.util.*;
-import javax.persistence.*;
-
 import play.Logger;
-import play.db.jpa.*;
-import play.data.validation.*;
+import play.data.validation.MaxSize;
+import play.data.validation.Required;
+import play.db.jpa.Model;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Release extends Model {

@@ -3,10 +3,9 @@ package controllers;
 import models.Project;
 import models.Release;
 import models.User;
-
-import play.*;
-import play.data.validation.*;
-import play.mvc.*;
+import play.data.validation.Validation;
+import play.mvc.Before;
+import play.mvc.Controller;
 
 public class Releases extends Controller {
 	
