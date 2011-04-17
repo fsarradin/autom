@@ -32,6 +32,7 @@ ${release.name}
 </section>
 
 <p class="note">Drag and drop a task to change its status.</p>
+<div id="console" style="border: 1px solid red;">&nbsp;</div>
 #{/if}
 
 <table id="task-table">
@@ -45,7 +46,7 @@ ${release.name}
 #{list items:release.getTasksByStatus(models.Status.TODO), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
-  <div class="task-title">[${task.taskId}] ${task.title}</div>
+  <div class="task-title">[<span class="taskId">${task.taskId}</span>] ${task.title}</div>
   <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </div>
 #{/list}
@@ -54,7 +55,7 @@ ${release.name}
 #{list items:release.getTasksByStatus(models.Status.IN_PROGRESS), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
   <div class="status">${task.status}</div>
-  <div class="task-title">[${task.taskId}] ${task.title}</div>
+  <div class="task-title">[<span class="taskId">${task.taskId}</span>] ${task.title}</div>
   <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </div>
 #{/list}

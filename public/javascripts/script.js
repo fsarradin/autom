@@ -32,6 +32,8 @@ $(document).ready(function () {
 						ui.item.find('.status').text(status);
 					}
 				});
+				var taskId = ui.item.find(".taskId").text();
+				$("#console").text("Task ID: " + taskId);
 			}
 		});
 	

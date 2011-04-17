@@ -1,16 +1,19 @@
 package controllers;
 
-import models.Project;
-import models.Release;
-import models.User;
+import com.google.gson.*;
+import models.*;
 import play.Logger;
 import play.data.validation.Validation;
 import play.mvc.Before;
 import play.mvc.Controller;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Releases extends Controller {
 	
-	@Before(unless={"show", "list"})
+	@Before(unless={"show", "list", "tasks"})
 	public static void checkConnected() {
 		try {
 			if (!Security.isConnected()) {
@@ -26,25 +29,21 @@ public class Releases extends Controller {
 		}
 	}
 	
-	public static void add(String project, String version, String name, String description) {
+	public static void add(String projectName, String version, String name, String description) {
 		if (Validation.hasErrors()) {
-			Projects.newRelease(project);
+			Projects.newRelease(projectName);
 		}
 		String username = Security.connected();
 		User user = User.findByUsername(username);
-        Logger.info("New release from user:" + user + " project:" + project);
-		Project p = Project.find("owner.login = ? and name = ?", user.login, project).first();
-		Release release = new Release(name, version, p, description);
+		Project project = Project.find("owner.login = ? and name = ?", user.login, projectName).first();
+		Release release = new Release(name, version, project, description);
 		release.save();
         Logger.info("New release: " + release);
-		show(user.login, project, version);
+		show(user.login, projectName, version);
 	}
 	
 	public static void show(String ownerName, String projectName, String version) {
-		Release release = Release.find("project.owner.login = ? "
-			+ " and project.name = ? "
-			+ " and version = ?",
-			ownerName, projectName, version).first();
+		Release release = getRelease(ownerName, projectName, version);
 		if (release == null) {
 			notFound(ownerName + " / " + projectName + " / " + version);
 		}
@@ -54,10 +53,23 @@ public class Releases extends Controller {
     public static void newTask(String projectName, String version) {
         String username = Security.connected();
         User user = User.findByUsername(username);
-        Project project = Project.find("owner.login = ? and name = ?", user.login, projectName).first();
-        Release release = Release.find("project.id = ? and version = ?", project.id, version).first();
+        Release release = getRelease(user.login, projectName, version);
+        render(release);
+    }
 
-        render(project, release);
+    private static Release getRelease(String ownerName, String projectName, String version) {
+        return Release.find("project.owner.login = ? and project.name = ? and version = ?",
+                ownerName, projectName, version).first();
+    }
+
+    public static void tasks(String ownerName, String projectName, String version) {
+        Release release = getRelease(ownerName, projectName, version);
+        List<TaskWrapper> taskList = new ArrayList<TaskWrapper>(release.tasks.size());
+        for (Task task : release.tasks) {
+            TaskWrapper wtask = new TaskWrapper(task);
+            taskList.add(wtask);
+        }
+        renderJSON(taskList);
     }
 
 }
