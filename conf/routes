@@ -18,7 +18,6 @@ GET     /projects                               Projects.list
 POST    /projects/add                           Projects.add
 
 GET     /releases                               Releases.list
-#GET     /releases/new                           Releases.create
 POST    /releases/add                           Releases.add
 
 GET     /users                                  Users.list
@@ -31,7 +30,7 @@ GET     /{ownerName}/{projectName}              Projects.show
 GET     /{ownerName}/{projectName}/new-release  Projects.newRelease
 
 GET     /{ownerName}/{projectName}/{version}    Releases.show
-#GET     /{ownerName}/{projectName}/{version}/new-task  Releases.newTask
+GET     /{ownerName}/{projectName}/{version}/new-task  Releases.newTask
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

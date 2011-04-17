@@ -50,4 +50,14 @@ public class Releases extends Controller {
 		}
 		render(release);
 	}
+
+    public static void newTask(String projectName, String version) {
+        String username = Security.connected();
+        User user = User.findByUsername(username);
+        Project project = Project.find("owner.login = ? and name = ?", user.login, projectName).first();
+        Release release = Release.find("project.id = ? and version = ?", project.id, version).first();
+
+        render(project, release);
+    }
+
 }

@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'New task' /}
+
+#{form @Tasks.add()}
+<input type="hidden" name="project" id="project" value="${project.name}" />
+<input type="hidden" name="version" id="version" value="${release.version}" />
+<dt>Project</dt>
+<dd>${project.name}</dd>
+<dt>Release</dt>
+<dd>${release.name} (${release.version})</dd>
+<dt>Task ID</dt>
+<dd><input type="text" name="taskid" id="taskid" /></dd>
+<dt>Title</dt>
+<dd><input type="text" name="title" id="title" /></dd>
+<dt>Description</dt>
+<dd><textarea name="description" id="description" cols="40" rows="5"></textarea></dd>
+<p><input type="submit" /></p>
+#{/form}

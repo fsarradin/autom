@@ -27,6 +27,10 @@ ${release.name}
 </article>
 
 #{if controllers.Security.isConnected()}
+<section id="new">
+    <a href="${release.version}/new-task">New task</a>
+</section>
+
 <p class="note">Drag and drop a task to change its status.</p>
 #{/if}
 
