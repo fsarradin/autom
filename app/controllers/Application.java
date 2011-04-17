@@ -20,20 +20,11 @@ public class Application extends Controller {
 				render();
 			} else {
 				List<Project> projects = Project.find("byOwner", user).fetch();
-				renderTemplate("Application/user.html", user, projects);
+                Users.show(user.login);
 			}
 		} else {
 			render();
 		}
     }
 	
-	public static void user(String username) {
-		User user = User.findByUsername(username);
-		if (user == null) {
-			notFound(username);
-		}
-		List<Project> projects = Project.find("byOwner", user).fetch();
-		render(user, projects);
-	}
-
 }

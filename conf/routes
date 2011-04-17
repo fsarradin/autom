@@ -25,7 +25,7 @@ POST    /releases/add                           Releases.add
 GET     /users                                  Users.list
 #GET     /users/new                              Users.create
 
-GET     /{username}                             Application.user
+GET     /{username}                             Users.show
 GET     /{ownerName}/{projectName}              Projects.show
 GET     /{ownerName}/{projectName}/{version}    Releases.show
 
