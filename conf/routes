@@ -15,19 +15,23 @@ GET     /account                                Account.settings
 GET     /                                       Application.index
 
 GET     /projects                               Projects.list
-GET     /projects/new                           Projects.create
 POST    /projects/add                           Projects.add
 
 GET     /releases                               Releases.list
-GET     /releases/new                           Releases.create
+#GET     /releases/new                           Releases.create
 POST    /releases/add                           Releases.add
 
 GET     /users                                  Users.list
 #GET     /users/new                              Users.create
 
 GET     /{username}                             Users.show
+GET     /{username}/new-project                 Users.newProject
+
 GET     /{ownerName}/{projectName}              Projects.show
+GET     /{ownerName}/{projectName}/new-release  Projects.newRelease
+
 GET     /{ownerName}/{projectName}/{version}    Releases.show
+#GET     /{ownerName}/{projectName}/{version}/new-task  Releases.newTask
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

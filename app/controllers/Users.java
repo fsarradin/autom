@@ -19,4 +19,8 @@ public class Users extends CRUD {
         render(user, projects);
     }
 
+    public static void newProject() {
+        render();
+    }
+
 }

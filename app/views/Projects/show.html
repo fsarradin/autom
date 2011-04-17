@@ -15,9 +15,10 @@
 <article id="release-list">
 <h2>Release</h2>
 
-<p>
-<a href="@{Releases.create(project.name)}">New release</a>
-</p>
+<section id="new">
+    <a href="${project.name}/new-release">New release</a>
+</section>
+
 
 <table class="data">
 <tbody>
@@ -25,7 +26,7 @@
 #{if project.releases.size() > 0}
 #{list items:project.releases, as:'release'}
 <tr class="release">
-<td><a href="/${project.owner}/${project.name}/${release.version}">${release.version}</a></td>
+<td><a href="${project.name}/${release.version}">${release.version}</a></td>
 <td>${release.name}</td>
 <td>${release.tasks.size()}</td>
 <td>${release.getStatus()}</td>

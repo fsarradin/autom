@@ -27,14 +27,14 @@ ${user.login} <span class="fullname">(${user.fullname})</span>
 <section id="projects">
 <h2>Projects (${projects.size()})</h2>
 
-<p>
-<a href="@{Projects.create}">New project</a>
-</p>
+<section id="new">
+    <a href="${user.login}/new-project">New project</a>
+</section>
 
 #{list items:projects, as:'project'}
 <section class="project">
   <div class="status">${project.getStatus()}</div>
-  <div class="name"><a href="${user.login}/${project.name}"><span class="project-name">${project.name}</span></a></div>
+  <div class="name"><a href="@{Projects.show(user.login, project.name)}"><span class="project-name">${project.name}</span></a></div>
   <div class="description">#{if project.description}${project.description}#{/if}#{else}&nbsp;#{/else}</div>
 </section>
 #{/list}

@@ -3,6 +3,7 @@ package controllers;
 import models.Project;
 import models.Release;
 import models.User;
+import play.Logger;
 import play.data.validation.Validation;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -25,19 +26,17 @@ public class Releases extends Controller {
 		}
 	}
 	
-	public static void create(String projectName) {
-		render(projectName);
-	}
-	
 	public static void add(String project, String version, String name, String description) {
 		if (Validation.hasErrors()) {
-			create(project);
+			Projects.newRelease(project);
 		}
 		String username = Security.connected();
 		User user = User.findByUsername(username);
+        Logger.info("New release from user:" + user + " project:" + project);
 		Project p = Project.find("owner.login = ? and name = ?", user.login, project).first();
 		Release release = new Release(name, version, p, description);
 		release.save();
+        Logger.info("New release: " + release);
 		show(user.login, project, version);
 	}
 	

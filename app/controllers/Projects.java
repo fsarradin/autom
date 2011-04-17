@@ -28,13 +28,9 @@ public class Projects extends Controller {
 		}
 	}
 	
-	public static void create() {
-		render();
-	}
-	
 	public static void add(@Required String name, String description) {
 		if (Validation.hasError("name")) {
-			create();
+			Users.newProject();
 		}
 		String username = Security.connected();
 		User user = User.findByUsername(username);
@@ -56,5 +52,8 @@ public class Projects extends Controller {
 	public static void list() {
 		render();
 	}
-	
+
+    public static void newRelease(String projectName) {
+        render(projectName);
+    }
 }

@@ -149,6 +149,7 @@ footer #credits {
   padding-top: 12pt;
   border-bottom: 1px solid #ccc;
   padding-bottom: 24pt;
+  margin-bottom: 24pt;
 }
 #user-detail td {
   padding-top: 3pt;
@@ -308,4 +309,17 @@ table.data td {
   font-weight: normal;
   padding: .5em .3em;
   border-bottom: 1px solid #ccc;
+}
+
+#new {
+  margin: 12pt 0 12pt 0;
+}
+#new a {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#bbb));
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  color: #555;
+  text-decoration: none;
+  text-shadow: #caa 1px 1px 0;
+  font-size: 90%;
 }
