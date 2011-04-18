@@ -51,7 +51,6 @@ public class Release extends Model {
 	}
 	
 	public List<Task> getTasksByStatus(Status status) {
-		Logger.info("get tasks in status " + status);
 		return Task.find("byProjectAndReleaseAndStatus",
 			project, this, status).fetch();
 	}

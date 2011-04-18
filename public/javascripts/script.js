@@ -11,6 +11,18 @@ $(document).ready(function () {
 		return status.toUpperCase().replace('_', ' ');
 	}
 
+	function toStatusId(status) {
+		return status.toUpperCase().replace(' ', '_');
+	}
+
+    function updateTask(taskId, statusId) {
+        $.ajax({
+            url: window.location + '/' + taskId,
+            type: 'POST',
+            data: "status=" + statusId,
+        });
+    }
+
 	$(".task-column")
 		.sortable({
 			connectWith: '.task-column',
@@ -33,7 +45,13 @@ $(document).ready(function () {
 					}
 				});
 				var taskId = ui.item.find(".taskId").text();
-				$("#console").text("Task ID: " + taskId);
+				var status = ui.item.find(".status").text();
+				var taskUri = window.location.pathname + '/' + taskId;
+				$("#console").html(
+				    "Task URI: " + taskUri + "<br />"
+				    + "Task ID: " + taskId + "<br />"
+				    + "Status: " + toStatusId(status));
+                updateTask(taskId, toStatusId(status));
 			}
 		});
 	

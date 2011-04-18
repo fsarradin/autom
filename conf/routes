@@ -33,6 +33,7 @@ GET     /{ownerName}/{projectName}/{version}           Releases.show
 GET     /{ownerName}/{projectName}/{version}/new-task  Releases.newTask
 GET     /{ownerName}/{projectName}/{version}/tasks     Releases.tasks(format:'json')
 GET     /{ownerName}/{projectName}/{version}/{taskId}  Tasks.showJson(format:'json')
+POST    /{ownerName}/{projectName}/{version}/{taskId}  Tasks.updateTask
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

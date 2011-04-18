@@ -14,14 +14,12 @@ public class Tasks extends CRUD {
         }
         String username = Security.connected();
         User user = User.findByUsername(username);
-        Logger.info("New task from user:" + user + " project:" + project + " version:" + version);
         Project p = Project.find("owner.login = ? and name = ?", user.login, project).first();
         Release release = Release.find("project.id = ? and version = ?", p.id, version).first();
 
         Task task = new Task(title, taskId, Status.TODO, p, release, description, new Date(), null);
         task.save();
 
-        Logger.info("New task: " + task);
         Releases.show(user.login, project, version);
     }
 
@@ -31,4 +29,12 @@ public class Tasks extends CRUD {
         renderJSON(new TaskWrapper(task));
     }
 
+    public static void updateTask(String ownerName, String projectName, String version, String taskId) {
+        String statusId = params.get("status", String.class);
+        Status status = Status.valueOf(statusId);
+        Task task = Task.find("release.project.owner.login = ? and release.project.name = ? and release.version = ? and taskId = ?",
+                ownerName, projectName, version, taskId).first();
+        task.status = status;
+        task.save();
+    }
 }
