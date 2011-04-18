@@ -46,11 +46,6 @@ $(document).ready(function () {
 				});
 				var taskId = ui.item.find(".taskId").text();
 				var status = ui.item.find(".status").text();
-				var taskUri = window.location.pathname + '/' + taskId;
-				$("#console").html(
-				    "Task URI: " + taskUri + "<br />"
-				    + "Task ID: " + taskId + "<br />"
-				    + "Status: " + toStatusId(status));
                 updateTask(taskId, toStatusId(status));
 			}
 		});
