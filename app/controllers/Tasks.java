@@ -4,10 +4,11 @@ import models.*;
 import play.Logger;
 import play.data.validation.Validation;
 import play.data.validation.ValidationPlugin;
+import play.mvc.Controller;
 
 import java.util.Date;
 
-public class Tasks extends CRUD {
+public class Tasks extends Controller {
     public static void add(String project, String version, String title, String taskId, String description) {
         if (Validation.hasErrors()) {
             Releases.newTask(project, version);
