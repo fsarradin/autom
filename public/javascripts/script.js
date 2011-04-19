@@ -49,5 +49,22 @@ $(document).ready(function () {
                 updateTask(taskId, toStatusId(status));
 			}
 		});
-	
+
+	    $(".popup-wrapper").each(function () {
+	        var popup = $(this).find(".popup");
+
+	        $(this).find(".popup-mark").click(function () {
+	            var display = popup.css("display");
+                if (display == "none") {
+                    popup.css("display", "block");
+                } else {
+                    popup.css("display", "none");
+                }
+	        });
+
+	        popup.mouseleave(function () {
+	            $(this).css('display', 'none');
+	        });
+	    });
+
 });

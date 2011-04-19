@@ -44,9 +44,14 @@ ${release.name}
 <td id="todo-container" class="task-column todo">
 #{list items:release.getTasksByStatus(models.Status.TODO), as:'task'}
 <div class="task ${task.status.toString().toLowerCase()}">
-  <div class="status">${task.status}</div>
-  <div class="task-title">[<span class="taskId">${task.taskId}</span>] ${task.title}</div>
-  <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
+    <div class="status">${task.status}</div>
+    <div class="popup-wrapper" style="float: right;"><span class="popup-mark" style="border: 1px solid black;">v</span>
+        <div class="popup" style="display: none; border: 1px solid black; position: absolute;">
+            Test
+        </div>
+    </div>
+    <div class="task-title">[<span class="taskId">${task.taskId}</span>] ${task.title}</div>
+    <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </div>
 #{/list}
 </td>
