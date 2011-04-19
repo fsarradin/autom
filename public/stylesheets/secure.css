@@ -19,7 +19,11 @@
   border: 2px solid #ba8;
   margin-top: -96pt;
   -webkit-box-shadow: #875 5px 5px 5px;
+  -moz-box-shadow: #875 5px 5px 5px;
+  box-shadow: #875 5px 5px 5px;
   -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #login h1 {
