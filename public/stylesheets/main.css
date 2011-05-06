@@ -323,3 +323,35 @@ table.data td {
   text-shadow: #caa 1px 1px 0;
   font-size: 90%;
 }
+
+.popup-wrapper {
+  float: right;
+  margin: 3px;
+}
+.popup-mark {
+  border: 1px solid #eb5;
+}
+.popup-mark-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  background-image: url(/public/images/ui-icons_454545_256x240.png);
+  background-position: -64px -16px;
+}
+.popup {
+  display: none;
+  background-color: #fe8;
+  border: 1px solid #eb5;
+  position: absolute;
+  font-size: 80%:
+  box-shadow: #ccc 2px 2px 2px;
+}
+.popup li {
+  padding: 1pt 0.5em 1pt 0.5em;
+}
+.popup li:hover {
+  background-color: #eb5;
+}

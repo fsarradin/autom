@@ -36,44 +36,43 @@ ${release.name}
 
 <table id="task-table">
 <tr>
-<th>TODO</th>
-<th>IN PROGRESS</th>
-<th>DONE</th>
+%{
+    for (status in java.util.EnumSet.allOf(models.Status.class)) {
+        String statusRepr = status.toString().replace(" ", "_");
+}%
+<th>${status.toString()}</th>
+%{
+    }
+}%
 </tr>
 <tr id="task-container">
-<td id="todo-container" class="task-column todo">
-#{list items:release.getTasksByStatus(models.Status.TODO), as:'task'}
-<div class="task ${task.status.toString().toLowerCase()}">
-    <div class="status">${task.status}</div>
-    <div class="popup-wrapper" style="float: right;">
-        <span class="popup-mark ui-icon ui-icon-arrow-1-s" style="border: 1px solid black;"></span>
-        <div class="popup" style="display: none; border: 1px solid black; position: absolute;">
-            Test
+%{
+    for (status in java.util.EnumSet.allOf(models.Status.class)) {
+        String statusRepr = status.toString().replace(" ", "_");
+}%
+<td id="todo-container" class="task-column ${statusRepr.toLowerCase()}">
+#{list items:release.getTasksByStatus(status), as:'task'}
+<div class="task ${statusRepr.toLowerCase()}">
+    <div class="popup-wrapper">
+        <div class="popup-mark">
+            <span class="popup-mark-icon"></span>
+        </div>
+        <div class="popup">
+            <ul>
+                <li>Modify</li>
+                <li>Delete</li>
+            </ul>
         </div>
     </div>
+    <div class="status">${task.status}</div>
     <div class="task-title">[<span class="taskId">${task.taskId}</span>] ${task.title}</div>
     <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
 </div>
 #{/list}
 </td>
-<td id="in_progress-container" class="task-column in_progress">
-#{list items:release.getTasksByStatus(models.Status.IN_PROGRESS), as:'task'}
-<div class="task ${task.status.toString().toLowerCase()}">
-  <div class="status">${task.status}</div>
-  <div class="task-title">[<span class="taskId">${task.taskId}</span>] ${task.title}</div>
-  <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
-</div>
-#{/list}
-</td>
-<td id="done-container" class="task-column done">
-#{list items:release.getTasksByStatus(models.Status.DONE), as:'task'}
-<div class="task ${task.status.toString().toLowerCase()}">
-  <div class="status">${task.status}</div>
-    <div class="task-title">[<span class="taskId">${task.taskId}</span>] ${task.title}</div>
-  <div class="description">#{if task.description}${task.description}#{/if}#{else}&nbsp;#{/else}</div>
-</div>
-#{/list}
-</td>
+%{
+    }
+}%
 </tr>
 </table>
 
