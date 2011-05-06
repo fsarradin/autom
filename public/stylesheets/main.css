@@ -364,6 +364,8 @@ table.data td {
   border: 1px solid #eb5;
   position: absolute;
   font-size: 80%:
+  -webkit-box-shadow: #ccc 2px 2px 2px;
+  -moz-box-shadow: #ccc 2px 2px 2px;
   box-shadow: #ccc 2px 2px 2px;
 }
 .popup li {
