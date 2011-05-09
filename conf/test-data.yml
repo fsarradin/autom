@@ -1,0 +1,37 @@
+
+User(admin):
+    login: admin
+    password: a
+    email: admin@xxx.com
+    fullname: Administrator
+    description: Administrator
+    since: 2011-01-01
+
+User(fsarradin):
+    login: fsarradin
+    password: a
+    email: fsarradin@xxx.com
+    fullname: François Sarradin
+    description: François Sarradin
+    since: 2011-01-01
+
+Project(autom):
+    name: autom
+    owner: fsarradin
+    description: This project
+    createDate: 2011-01-01
+
+Release(0.1):
+    name: autom mock-up
+    version: 0.1
+    project: autom
+    description: blah blah
+
+Task(T1):
+    title: Build the mock-up
+    taskId: T1
+    status: TODO
+    project: autom
+    release: 0.1
+    description: Think of many things you can do with play!
+    startDate: 2011-01-01
