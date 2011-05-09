@@ -1,11 +1,5 @@
 import models.User;
 import play.Logger;
-<<<<<<< HEAD
-import play.jobs.Job;
-import play.jobs.OnApplicationStart;
-
-import java.util.Date;
-=======
 import play.Play;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
